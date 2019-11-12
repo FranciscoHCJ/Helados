@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jhcomp="http://xmlns.jcp.org/jsf/composite/jhcomp"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    
+    <ui:param name="titulo" value="Helado Nuevo"/>
+    
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>#{titulo}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet library="css" name="estilos.css"/>
+    </h:head>
+    
+    <h:body>
+        <h:form prependId="false">
+            <header>
+                <h:link value="Cancelar" outcome="index"/>
+                <divide/>
+                <h:commandButton type="submit" value="Guardar" action="#{ctrlHeladoNuevo.guarda()}"/>
+                <h1>#{titulo}</h1>
+            </header>
+            <h:messages globalOnly="true"/>
+            
+            <p>
+                <h:inputText id="sabor" p:placeholder="Nombre" value="#{ctrlHeladoNuevo.modelo.sabor}"/>
+                <h:message for="sabor"/>
+            </p>
+            
+            <p>
+                <h:inputText id="color" p:placeholder="Color" value="#{ctrlHeladoNuevo.modelo.color}"/>
+                <h:message for="color"/>
+            </p>
+            
+            <p>
+                <h:inputText id="tipo" p:placeholder="Tipo Sabor" value="#{ctrlHeladoNuevo.modelo.tipoSabor}"/>
+                <h:message for="tipo"/>
+            </p>
+            
+            <jhcomp:footer></jhcomp:footer>
+        </h:form>
+    </h:body>
+    
+</html>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:jhcomp="http://xmlns.jcp.org/jsf/composite/jhcomp"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:param name="titulo" value="${ctrlHelado.modelo.sabor}"/>
+    
+    <h:head>
+        <meta charset="UTF-8"/>
+        <title>#{titulo}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link jsf:library="css" jsf:name="estilos.css"/>
+    </h:head>
+    
+    
+    <h:body>
+        <f:metadata>
+            <f:viewParam name="id" value="#{ctrlHelado.id}" required="true"/>
+            <f:viewAction action="#{ctrlHelado.init()}"/>
+        </f:metadata>
+        
+        <form jsf:prependId="false">
+            <header>
+                <a jsf:outcome="index">Cancelar</a>
+                <button type="submit" jsf:action="#{ctrlHelado.guarda()}">
+                    Guardar
+                </button>
+                
+                <button type="submit" jsf:action="#{ctrlHelado.elimina()}">
+                    Eliminar
+                </button>
+                <h1>#{titulo}</h1>
+            </header>
+            <h:messages globalOnly="true"/>
+            
+            <p>
+                <input jsf:id="sabor" type="text" placeholder="Sabor" jsf:value="#{ctrlHelado.modelo.sabor}"/>
+                <h:message for="sabor"/>
+            </p>
+            
+            <p>
+                <input jsf:id="color" type="text" placeholder="Color" jsf:value="#{ctrlHelado.modelo.color}"/>
+                <h:message for="color"/>
+            </p>
+            
+            <p>
+                <input jsf:id="tipo" type="text" placeholder="Tipo de Sabor" jsf:value="#{ctrlHelado.modelo.tipoSabor}"/>
+                <h:message for="tipo"/>
+            </p>
+            
+            <jhcomp:footer></jhcomp:footer>
+            
+            
+        </form>
+    </h:body>
+    
+</html>
